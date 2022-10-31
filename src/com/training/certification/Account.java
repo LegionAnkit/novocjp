@@ -56,7 +56,8 @@ public class Account {
 
 	
 	public synchronized double transfer(Account a, double amt) throws LessFundsException{
-		 this.withdrawl(amt);
+		
+		this.withdrawl(amt);
 		 a.deposit(amt);
 		 
 		 return this.balance;
