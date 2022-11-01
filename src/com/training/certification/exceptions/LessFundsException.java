@@ -1,4 +1,7 @@
 package com.training.certification.exceptions;
+//checked exception
+//declare it or you have to handle it
+//method throws LessFundsException
 
 public class LessFundsException extends Exception {
 

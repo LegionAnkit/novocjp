@@ -39,6 +39,11 @@ public class SchedulerDemo {
 		
 		Callable <Integer> c1 = ()->6*7;
 		Callable <String> c2 =  ()-> "callable tasks ";
+		
+		//when will c1 execute -- initial delay of 4 seconds
+		//what is the return value of this schedule method ---  ScheduledFuture <T> 
+		
+		//schedule method takes callable and runnable
 	    ScheduledFuture<Integer> returnValue = service.schedule(c1, 4, TimeUnit.SECONDS);
       
 	    
@@ -54,11 +59,20 @@ public class SchedulerDemo {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	    
+	    //scheduleWithFixedDelay and scheduleAtFixedRate --- both takes only Runnable
+	  //what is the return value of this scheduleWithFixedDelay  and scheduleAtFixedRate method ---  ScheduledFuture <T> 
+		   
+	    //when will t1 start -- initial delay  -- 10 seconds , every time it repeats 5 seconds gap
 		ScheduledFuture<?> result = service.scheduleAtFixedRate(t1, 10, 5, TimeUnit.SECONDS);
 		
+		//what is the return value of this schedule method ---  ScheduledFuture <T> 
+		   
+		//when will t2 start --3 sec initial delay , how many seconds it will  delay after the completion of the task and then repeat execution 10- seconds 
 		ScheduledFuture<?> res2 =  service.scheduleWithFixedDelay(t2, 3, 10, TimeUnit.SECONDS);
 		try {
-			System.out.println(result.get(1, TimeUnit.SECONDS));
+			System.out.println(result.get(20, TimeUnit.SECONDS));
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

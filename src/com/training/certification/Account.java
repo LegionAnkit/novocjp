@@ -1,11 +1,16 @@
 package com.training.certification;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 import com.training.certification.exceptions.LessFundsException;
 
 public class Account {
 	
 	private long id;
 	private double balance;
+	
+	 Lock obj = new ReentrantLock();
 	
 	
 	public long getId() {
@@ -55,11 +60,27 @@ public class Account {
 	}
 
 	
-	public synchronized double transfer(Account a, double amt) throws LessFundsException{
+	public  double transfer(Account a, double amt) throws LessFundsException{
+		synchronized (this) {
+			
 		
 		this.withdrawl(amt);
 		 a.deposit(amt);
-		 
+		} 
 		 return this.balance;
 	}
+	
+	public static  int m1() {
+		//assuming that there are 1000 loc
+		
+	//assuming there is more code 
+		return 10;
+	}
+	
+	public static synchronized  int m2() {
+		
+		
+		return 10;
+	}
+	
 }

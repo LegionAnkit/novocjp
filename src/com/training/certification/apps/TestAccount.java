@@ -62,7 +62,8 @@ public class TestAccount {
    //this thread pool of 3
    
    ExecutorService service =  Executors.newSingleThreadExecutor();
-   
+   //i wanted to execute withdrawl thrice that's why for loop
+   //submitting this task 3 times
    for (int i=0;i<3;i++) {
 	   
 	 
@@ -70,6 +71,13 @@ public class TestAccount {
 	   
 
    }
+   
+   //how to execute runnable using execute method
+   
+   // whenever their is a choice between execute and submit  , use submit because it supports calls to Callable  tasks 
+   // difference between Runnable --public void run   Callable  public T call() 
+   
+   //when submitting Callable or Runnable (Future object will return null)
    service.execute(()->{System.out.println("hello");});
    System.out.println(amit.toString());
    
